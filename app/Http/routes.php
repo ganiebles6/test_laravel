@@ -15,6 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+<<<<<<< HEAD
 Route::get('notes','NotesController@Index');
 
 Route::get('notes/create','NotesController@CreateNote');
@@ -24,3 +25,17 @@ Route::post('notes','NotesController@GetNote');
 Route::get('notes/{note}','NotesController@ShowNote')->where('note', '[0-9]+');
 
 
+=======
+Route::get('notes', function(){
+	$notes = Note::all();
+	return view('notas/notes', compact('notes'));
+});
+
+Route::post('notes', function(){
+	return "Creando metodo post";
+});
+
+Route::get('notes/{id?}/{slug?}', function($id, $slug=null){
+	return view('notas/create');
+})->where('id', '[0-9]+');
+>>>>>>> 725e009768361e31be64496eb1a7b48130095207
